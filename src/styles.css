@@ -13,3 +13,7 @@ body {
 .card-title {
     font-weight: bold;
 }
+
+.parameters-form {
+    margin-right: 1%;
+}
