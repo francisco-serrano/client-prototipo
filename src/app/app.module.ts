@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
 import { MatIconModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { LecturaInformacionComponent } from './lectura-informacion/lectura-informacion.component';
@@ -32,7 +33,8 @@ import { GeneracionInformeComponent } from './generacion-informe/generacion-info
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
