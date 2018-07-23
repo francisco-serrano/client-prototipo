@@ -10,7 +10,7 @@ const fs = require('fs');
 
 
 // Serve only the static files form the dist directory
-app.use(express.static('/dist/client-prototipo'));
+app.use(express.static('/dist/client'));
 
 app.get('/*', function(req, res) {
     console.log('QUE ONDA BIGOTE')
@@ -18,7 +18,7 @@ app.get('/*', function(req, res) {
     fs.readdirSync(testFolder).forEach(file => {
         console.log(file);
     });
-    res.sendFile(path.join('/dist/client-prototipo/index.html'));
+    res.sendFile(path.join('/dist/client//index.html'));
 });
 
 // Start the app by listening on the default Heroku port
