@@ -4,20 +4,10 @@ const path = require('path');
 
 const app = express();
 
-const testFolder = './dist';
-const fs = require('fs');
-
-
-
 // Serve only the static files form the dist directory
 app.use(express.static('dist/client'));
 
 app.get('/*', function(req, res) {
-    console.log('QUE ONDA BIGOTE')
-    console.log(__dirname);
-    fs.readdirSync(testFolder).forEach(file => {
-        console.log(file);
-    });
     res.sendFile(path.join('dist/client//index.html'));
 });
 
