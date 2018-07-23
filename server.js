@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-const testFolder = './';
+const testFolder = './dist';
 const fs = require('fs');
 
 
