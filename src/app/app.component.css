@@ -1,0 +1,20 @@
+.icon {
+  padding: 0 14px;
+}
+
+.sidemenu {
+  width: 20%;
+}
+
+.sidemenu-toolbar {
+height: 5%;
+}
+
+.sidemenu-title {
+width: 100%; 
+text-align: center;
+}
+
+.sidemenu-item {
+margin-top: 1%;
+}

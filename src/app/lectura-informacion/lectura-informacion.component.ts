@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LecturaInformacionComponent implements OnInit {
 
+  private shouldRun = false;
+
   constructor() { }
 
   ngOnInit() {

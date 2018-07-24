@@ -9,22 +9,24 @@ import { MatCardModule } from '@angular/material';
 import { MatIconModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { LecturaInformacionComponent } from './lectura-informacion/lectura-informacion.component';
-import { HeaderComponent } from './header/header.component';
 import { BusquedaCoincidenciasComponent } from './busqueda-coincidencias/busqueda-coincidencias.component';
 import { ConstruccionEnsamblesComponent } from './construccion-ensambles/construccion-ensambles.component';
 import { GeneracionInformeComponent } from './generacion-informe/generacion-informe.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LecturaInformacionComponent,
-    HeaderComponent,
     BusquedaCoincidenciasComponent,
     ConstruccionEnsamblesComponent,
-    GeneracionInformeComponent
+    GeneracionInformeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,9 @@ import { GeneracionInformeComponent } from './generacion-informe/generacion-info
     MatCardModule,
     MatIconModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
