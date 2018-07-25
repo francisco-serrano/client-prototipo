@@ -19,6 +19,7 @@ import { BusquedaCoincidenciasComponent } from './busqueda-coincidencias/busqued
 import { ConstruccionEnsamblesComponent } from './construccion-ensambles/construccion-ensambles.component';
 import { GeneracionInformeComponent } from './generacion-informe/generacion-informe.component';
 import { HeaderComponent } from './header/header.component';
+import { DialogConfirmacionComponent } from './dialog-confirmacion/dialog-confirmacion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HeaderComponent } from './header/header.component';
     BusquedaCoincidenciasComponent,
     ConstruccionEnsamblesComponent,
     GeneracionInformeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DialogConfirmacionComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,9 @@ import { HeaderComponent } from './header/header.component';
     MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogConfirmacionComponent
+  ]
 })
 export class AppModule { }

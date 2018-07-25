@@ -1,26 +1,27 @@
 <mat-drawer-container>
-        <mat-drawer #drawer class="sidemenu" position="end" mode="over">
-            <mat-toolbar color="primary" class="sidemenu-toolbar">
-                <span class="sidemenu-title">Opciones</span>
-                <button mat-button (click)="drawer.toggle()" tabindex="-1">
-                    <mat-icon class="icon" type="button">close</mat-icon>
-                </button>
-                
-            </mat-toolbar>
-        
-            <mat-nav-list>
-                <a mat-list-item class="sidemenu-item">Directorio Interno</a>
-                <a mat-list-item class="sidemenu-item">Ayuda</a>
-            </mat-nav-list>
-        </mat-drawer>
-            
-        <mat-toolbar color="primary">
-            <span>Grupo Bióticos - Prototipo</span>
-            <span class="spacer"></span>
+    <mat-drawer #drawer class="sidemenu" position="end" mode="over">
+        <mat-toolbar color="primary" class="sidemenu-toolbar">
+            <span class="sidemenu-title">Opciones</span>
             <button mat-button (click)="drawer.toggle()" tabindex="-1">
-                <mat-icon class="icon" type="button">menu</mat-icon>
+                <mat-icon class="icon" type="button">close</mat-icon>
             </button>
+            
         </mat-toolbar>
+    
+        <mat-nav-list>
+            <a mat-list-item class="sidemenu-item">Directorio Interno</a>
+            <a mat-list-item class="sidemenu-item">Ayuda</a>
+        </mat-nav-list>
+    </mat-drawer>
+        
+    <mat-toolbar color="primary">
+        <span>Grupo Bióticos - Prototipo</span>
+        <span class="spacer"></span>
+        <button mat-button (click)="drawer.toggle()" tabindex="-1">
+            <mat-icon class="icon" type="button">menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
     <!--<app-header></app-header>-->
     <app-lectura-informacion></app-lectura-informacion>
     <app-busqueda-coincidencias></app-busqueda-coincidencias>
