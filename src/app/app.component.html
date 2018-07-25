@@ -2,7 +2,7 @@
         <mat-drawer #drawer class="sidemenu" position="end" mode="over">
             <mat-toolbar color="primary" class="sidemenu-toolbar">
                 <span class="sidemenu-title">Opciones</span>
-                <button mat-button (click)="drawer.toggle()">
+                <button mat-button (click)="drawer.toggle()" tabindex="-1">
                     <mat-icon class="icon" type="button">close</mat-icon>
                 </button>
                 
@@ -17,7 +17,7 @@
         <mat-toolbar color="primary">
             <span>Grupo Bióticos - Prototipo</span>
             <span class="spacer"></span>
-            <button mat-button (click)="drawer.toggle()">
+            <button mat-button (click)="drawer.toggle()" tabindex="-1">
                 <mat-icon class="icon" type="button">menu</mat-icon>
             </button>
         </mat-toolbar>

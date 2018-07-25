@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { LecturaInformacionComponent } from './lectura-informacion/lectura-informacion.component';
@@ -38,7 +39,8 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
