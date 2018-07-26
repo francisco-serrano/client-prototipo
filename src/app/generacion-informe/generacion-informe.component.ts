@@ -10,7 +10,7 @@ import { ConexionBackendService } from '../services/conexion-backend.service';
 })
 export class GeneracionInformeComponent implements OnInit {
 
-  private resultadoGeneracion: string;
+  resultadoGeneracion: string;
 
   constructor(
     private dialog: MatDialog,

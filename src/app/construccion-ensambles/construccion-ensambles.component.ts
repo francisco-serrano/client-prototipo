@@ -10,7 +10,7 @@ import { ConexionBackendService } from '../services/conexion-backend.service';
 })
 export class ConstruccionEnsamblesComponent implements OnInit {
 
-  private resultadoConstruccion: string;
+  resultadoConstruccion: string;
 
   constructor(
     private dialog: MatDialog,

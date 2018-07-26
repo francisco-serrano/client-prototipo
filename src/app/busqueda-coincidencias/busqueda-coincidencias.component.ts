@@ -10,7 +10,7 @@ import { ConexionBackendService } from '../services/conexion-backend.service';
 })
 export class BusquedaCoincidenciasComponent implements OnInit {
 
-  private resultadoBusqueda: string;
+  resultadoBusqueda: string;
 
   constructor(
     private dialog: MatDialog,
