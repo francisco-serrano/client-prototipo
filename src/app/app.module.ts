@@ -21,6 +21,8 @@ import { GeneracionInformeComponent } from './generacion-informe/generacion-info
 import { HeaderComponent } from './header/header.component';
 import { DialogConfirmacionComponent } from './dialog-confirmacion/dialog-confirmacion.component';
 
+import { ConexionBackendService } from './services/conexion-backend.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,7 @@ import { DialogConfirmacionComponent } from './dialog-confirmacion/dialog-confir
     MatListModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [ConexionBackendService],
   bootstrap: [AppComponent],
   entryComponents: [
     DialogConfirmacionComponent

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DialogConfirmacionComponent } from '../dialog-confirmacion/dialog-confirmacion.component';
+import { ConexionBackendService } from '../services/conexion-backend.service';
 
 @Component({
   selector: 'app-busqueda-coincidencias',
@@ -9,14 +10,24 @@ import { DialogConfirmacionComponent } from '../dialog-confirmacion/dialog-confi
 })
 export class BusquedaCoincidenciasComponent implements OnInit {
 
+  private resultadoBusqueda: string;
+
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private backend: ConexionBackendService
   ) {}
 
   ngOnInit() {
   }
 
-  openDialog() {
+  busquedaCoincidencias() {
+    this.backend.busquedaCoincidencias().subscribe(data => {
+      this.resultadoBusqueda = data;
+      this.openDialog(data);
+    });
+  }
+
+  openDialog(resultado: string) {
     const dialogConfig = new MatDialogConfig();
 
     // Para que el usuario no pueda cerrar el cuadro de diálogo al clickear afuera
