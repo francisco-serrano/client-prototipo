@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { DialogConfirmacionComponent } from '../dialog-confirmacion/dialog-confirmacion.component';
-import { ConexionBackendService } from '../services/conexion-backend.service';
+import { ConexionBackendService } from '../services/conexion-backend/conexion-backend.service';
+import { ConexionDialogService } from '../services/conexion-dialog/conexion-dialog.service';
 
 @Component({
   selector: 'app-busqueda-coincidencias',
@@ -13,7 +12,7 @@ export class BusquedaCoincidenciasComponent implements OnInit {
   resultadoBusqueda: string;
 
   constructor(
-    private dialog: MatDialog,
+    private dialog: ConexionDialogService,
     private backend: ConexionBackendService
   ) {}
 
@@ -23,17 +22,8 @@ export class BusquedaCoincidenciasComponent implements OnInit {
   busquedaCoincidencias() {
     this.backend.busquedaCoincidencias().subscribe(data => {
       this.resultadoBusqueda = data;
-      this.openDialog(data);
+      this.dialog.openDialog('Las coincidencias encontradas se almacenaron en el archivo coincidencias.abc');
     });
   }
 
-  private openDialog(resultado: string) {
-    this.dialog.open(DialogConfirmacionComponent, {
-      'disableClose': true,
-      'autoFocus': false,
-      'data': {
-        'texto': 'Las coincidencias encontradas se almacenaron en el archivo coincidencias.abc'
-      }
-    });
-  }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material';
-import { DialogConfirmacionComponent } from '../dialog-confirmacion/dialog-confirmacion.component';
-import { ConexionBackendService } from '../services/conexion-backend.service';
+import { ConexionBackendService } from '../services/conexion-backend/conexion-backend.service';
+import { ConexionDialogService } from '../services/conexion-dialog/conexion-dialog.service';
 
 @Component({
   selector: 'app-generacion-informe',
@@ -13,7 +12,7 @@ export class GeneracionInformeComponent implements OnInit {
   resultadoGeneracion: string;
 
   constructor(
-    private dialog: MatDialog,
+    private dialog: ConexionDialogService,
     private backend: ConexionBackendService
   ) { }
 
@@ -23,17 +22,7 @@ export class GeneracionInformeComponent implements OnInit {
   generacionInformes() {
     this.backend.generacionInformes().subscribe(data => {
       this.resultadoGeneracion = data;
-      this.openDialog(data);
-    });
-  }
-
-  private openDialog(resultado: string) {
-    this.dialog.open(DialogConfirmacionComponent, {
-      'disableClose': true,
-      'autoFocus': false,
-      'data': {
-        'texto': 'Los informes generados se almacenaron en el archivo ensambles.abc'
-      }
+      this.dialog.openDialog('Los informes generados se almacenaron en el archivo ensambles.abc');
     });
   }
 
