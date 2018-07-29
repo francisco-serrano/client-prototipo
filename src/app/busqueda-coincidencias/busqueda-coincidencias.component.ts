@@ -10,6 +10,7 @@ import { ConexionDialogService } from '../services/conexion-dialog/conexion-dial
 export class BusquedaCoincidenciasComponent implements OnInit {
 
   resultadoBusqueda: string;
+  mostrarSpinner: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -20,9 +21,11 @@ export class BusquedaCoincidenciasComponent implements OnInit {
   }
 
   busquedaCoincidencias() {
+    this.mostrarSpinner = true;
     this.backend.busquedaCoincidencias().subscribe(data => {
       this.resultadoBusqueda = data;
       this.dialog.openDialog('Las coincidencias encontradas se almacenaron en el archivo coincidencias.abc');
+      this.mostrarSpinner = false;
     });
   }
 

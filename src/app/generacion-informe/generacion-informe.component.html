@@ -25,9 +25,12 @@
           </mat-form-field>
 
           <button mat-raised-button type="button" color="primary" style="margin-left: 1%" (click)="generacionInformes()">Ejecutar JAR</button>
-
-          <p>Texto Proveniente del Back-End: {{resultadoGeneracion}}</p>
-
     </form>
+
+    <div style="display: flex; margin-top: 1%">
+      <p>Texto Proveniente del Back-End:</p>  
+      <mat-spinner *ngIf="mostrarSpinner" color="primary" mode="indeterminate" [diameter]="30" style="margin-left: 1%"></mat-spinner>
+      <p style="margin-left: 1%">{{resultadoGeneracion}}</p>
+    </div>
   </mat-card-content>
 </mat-card>

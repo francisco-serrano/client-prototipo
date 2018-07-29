@@ -10,6 +10,7 @@ import { ConexionDialogService } from '../services/conexion-dialog/conexion-dial
 export class ConstruccionEnsamblesComponent implements OnInit {
 
   resultadoConstruccion: string;
+  mostrarSpinner: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -20,9 +21,11 @@ export class ConstruccionEnsamblesComponent implements OnInit {
   }
 
   construccionEnsambles() {
+    this.mostrarSpinner = true;
     this.backend.construccionEnsambles().subscribe(data => {
       this.resultadoConstruccion = data;
       this.dialog.openDialog('Los ensambles construidos se almacenaron en el archivo ensambles.abc');
+      this.mostrarSpinner = false;
     });
   }
 

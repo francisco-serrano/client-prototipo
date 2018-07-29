@@ -10,6 +10,7 @@ import { ConexionDialogService } from '../services/conexion-dialog/conexion-dial
 export class LecturaInformacionComponent implements OnInit {
 
   resultadoLectura: string;
+  mostrarSpinner: boolean;
 
   constructor(
     private backend: ConexionBackendService,
@@ -20,9 +21,11 @@ export class LecturaInformacionComponent implements OnInit {
   }
 
   lecturaInformacion() {
+    this.mostrarSpinner = true;
     this.backend.lecturaInformacion().subscribe(data => {
       this.resultadoLectura = data;
       this.dialog.openDialog('La lectura de la información se almacenó en el archivo lectura.abc');
+      this.mostrarSpinner = false;
     });
   }
 

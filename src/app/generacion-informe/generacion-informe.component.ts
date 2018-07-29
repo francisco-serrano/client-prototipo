@@ -10,6 +10,7 @@ import { ConexionDialogService } from '../services/conexion-dialog/conexion-dial
 export class GeneracionInformeComponent implements OnInit {
 
   resultadoGeneracion: string;
+  mostrarSpinner: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -20,9 +21,11 @@ export class GeneracionInformeComponent implements OnInit {
   }
 
   generacionInformes() {
+    this.mostrarSpinner = true;
     this.backend.generacionInformes().subscribe(data => {
       this.resultadoGeneracion = data;
       this.dialog.openDialog('Los informes generados se almacenaron en el archivo ensambles.abc');
+      this.mostrarSpinner = false;
     });
   }
 
