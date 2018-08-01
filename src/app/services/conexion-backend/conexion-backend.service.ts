@@ -14,13 +14,9 @@ export class ConexionBackendService {
 
   constructor(private http: HttpClient) { }
 
-  prueba(): Observable<any> {
-    console.log('Se hizo una llamada al método hello del servicio');
-    return this.http.get(this.URL_LOCAL + '/', {responseType: 'text'});
-  }
-
   lecturaInformacion(): Observable<any> {
     console.log('Se hizo una llamada al metodo lecturaInformacion');
+    console.log('Se utilizó la URL: ' + this.url_utilizar);
     return this.http.get(this.url_utilizar + '/lecturainformacion', {responseType: 'text'});
   }
 
