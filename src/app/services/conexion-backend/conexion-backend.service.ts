@@ -7,32 +7,35 @@ import { Observable } from 'rxjs';
 })
 export class ConexionBackendService {
 
-  private readonly URL = 'http://localhost:8080';
+  private readonly URL_LOCAL = 'http://localhost:8080';
+  private readonly URL_REMOTE = 'https://server-prototipo.herokuapp.com/';
+
+  private url_utilizar = window.location.protocol === 'http:' ? this.URL_LOCAL : this.URL_REMOTE;
 
   constructor(private http: HttpClient) { }
 
   prueba(): Observable<any> {
     console.log('Se hizo una llamada al método hello del servicio');
-    return this.http.get(this.URL + '/', {responseType: 'text'});
+    return this.http.get(this.URL_LOCAL + '/', {responseType: 'text'});
   }
 
   lecturaInformacion(): Observable<any> {
     console.log('Se hizo una llamada al metodo lecturaInformacion');
-    return this.http.get(this.URL + '/lecturainformacion', {responseType: 'text'});
+    return this.http.get(this.url_utilizar + '/lecturainformacion', {responseType: 'text'});
   }
 
   busquedaCoincidencias(): Observable<any> {
     console.log('Se hizo una llamada al metodo busquedaCoincidencias');
-    return this.http.get(this.URL + '/busquedacoincidencias', {responseType: 'text'});
+    return this.http.get(this.url_utilizar + '/busquedacoincidencias', {responseType: 'text'});
   }
 
   construccionEnsambles(): Observable<any> {
     console.log('Se hizo una llamada al metodo construccionEnsambles');
-    return this.http.get(this.URL + '/construccionensambles', {responseType: 'text'});
+    return this.http.get(this.url_utilizar + '/construccionensambles', {responseType: 'text'});
   }
 
   generacionInformes(): Observable<any> {
     console.log('Se hizo una llamada al metodo generacionInformes');
-    return this.http.get(this.URL + '/generacioninformes', {responseType: 'text'});
+    return this.http.get(this.url_utilizar + '/generacioninformes', {responseType: 'text'});
   }
 }
