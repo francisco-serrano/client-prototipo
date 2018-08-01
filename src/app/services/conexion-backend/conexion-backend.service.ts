@@ -10,13 +10,13 @@ export class ConexionBackendService {
   private readonly URL_LOCAL = 'http://localhost:8080';
   private readonly URL_REMOTE = 'https://server-prototipo.herokuapp.com/';
 
-  private url_utilizar = window.location.protocol === 'http:' ? this.URL_LOCAL : this.URL_REMOTE;
+  private url_utilizar = window.location.protocol === 'https:' ? this.URL_REMOTE : this.URL_LOCAL;
 
   constructor(private http: HttpClient) { }
 
   lecturaInformacion(): Observable<any> {
     console.log('Se hizo una llamada al metodo lecturaInformacion');
-    console.log('Se utilizó la URL: ' + this.url_utilizar);
+    console.log('URL Utilizada: ' + this.url_utilizar);
     return this.http.get(this.url_utilizar + '/lecturainformacion', {responseType: 'text'});
   }
 
