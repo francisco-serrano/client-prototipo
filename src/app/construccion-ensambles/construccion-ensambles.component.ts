@@ -11,6 +11,10 @@ export class ConstruccionEnsamblesComponent implements OnInit {
 
   resultadoConstruccion: string;
   mostrarSpinner: boolean;
+  archivoEntrada: string;
+  selectedValue = 'undefined';
+  opciones: String[] = ['Mate-Pair', 'Paired-End'];
+  archivoSalida: string;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -22,10 +26,10 @@ export class ConstruccionEnsamblesComponent implements OnInit {
 
   construccionEnsambles() {
     this.mostrarSpinner = true;
-    this.backend.construccionEnsambles().subscribe(data => {
-      this.resultadoConstruccion = data;
-      this.dialog.openDialog('Los ensambles construidos se almacenaron en el archivo ensambles.abc');
-      this.mostrarSpinner = false;
+    this.backend.construccionEnsambles(this.archivoEntrada, this.selectedValue, this.archivoSalida).subscribe(data => {
+        this.resultadoConstruccion = data;
+        this.dialog.openDialog('Los ensambles construidos se almacenaron en el archivo ' + this.archivoSalida);
+        this.mostrarSpinner = false;
     });
   }
 

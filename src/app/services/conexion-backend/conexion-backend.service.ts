@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,10 +26,19 @@ export class ConexionBackendService {
     return this.http.get(this.url_utilizar + '/busquedacoincidencias', {responseType: 'text'});
   }
 
-  construccionEnsambles(): Observable<any> {
+  construccionEnsambles(archivo_entrada, opcion_ensamble, archivo_salida): Observable<any> {
     console.log('Se hizo una llamada al metodo construccionEnsambles');
     console.log('URL Utilizada: ' + this.url_utilizar);
-    return this.http.get(this.url_utilizar + '/construccionensambles', {responseType: 'text'});
+
+    const Params = new HttpParams()
+      .append('archivo_entrada', archivo_entrada)
+      .append('opcion_ensamble', opcion_ensamble)
+      .append('archivo_salida', archivo_salida);
+
+    // AGREGAR LOS PARAMETROS AL GET
+    return this.http.get(this.url_utilizar + '/construccionensambles', {
+      responseType: 'text',
+      params: Params});
   }
 
   generacionInformes(): Observable<any> {

@@ -13,6 +13,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 import { AppComponent } from './app.component';
 import { LecturaInformacionComponent } from './lectura-informacion/lectura-informacion.component';
@@ -47,7 +52,11 @@ import { ConexionDialogService } from './services/conexion-dialog/conexion-dialo
     MatSidenavModule,
     MatListModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ConexionBackendService,
