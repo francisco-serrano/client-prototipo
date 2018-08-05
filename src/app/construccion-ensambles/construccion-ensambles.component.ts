@@ -15,6 +15,7 @@ export class ConstruccionEnsamblesComponent implements OnInit {
   selectedValue = 'undefined';
   opciones: String[] = ['Mate-Pair', 'Paired-End'];
   archivoSalida: string;
+  runningLocal: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -27,7 +28,9 @@ export class ConstruccionEnsamblesComponent implements OnInit {
   construccionEnsambles() {
     this.mostrarSpinner = true;
     this.backend.construccionEnsambles(this.archivoEntrada, this.selectedValue, this.archivoSalida).subscribe(data => {
-        this.resultadoConstruccion = data;
+        const json = JSON.parse(data);
+        this.resultadoConstruccion = json.mensaje;
+        this.runningLocal = json.runningLocal;
         this.dialog.openDialog('Los ensambles construidos se almacenaron en el archivo ' + this.archivoSalida);
         this.mostrarSpinner = false;
     });

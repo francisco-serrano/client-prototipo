@@ -11,6 +11,10 @@ export class BusquedaCoincidenciasComponent implements OnInit {
 
   resultadoBusqueda: string;
   mostrarSpinner: boolean;
+  archivoReferencia: string;
+  genomaAnalizar: string;
+  archivoSalida: string;
+  runningLocal: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -22,8 +26,10 @@ export class BusquedaCoincidenciasComponent implements OnInit {
 
   busquedaCoincidencias() {
     this.mostrarSpinner = true;
-    this.backend.busquedaCoincidencias().subscribe(data => {
-      this.resultadoBusqueda = data;
+    this.backend.busquedaCoincidencias(this.archivoReferencia, this.genomaAnalizar, this.archivoSalida).subscribe(data => {
+      const json = JSON.parse(data);
+      this.resultadoBusqueda = json.mensaje;
+      this.runningLocal = json.runningLocal;
       this.dialog.openDialog('Las coincidencias encontradas se almacenaron en el archivo coincidencias.abc');
       this.mostrarSpinner = false;
     });

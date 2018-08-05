@@ -4,33 +4,45 @@
     <mat-card-subtitle>Subgrupo 1: Nicolás Laugas - Luciano Elissondo - Martín Santillán Cooper</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>Ingresar una descripción de la tarea realizada</p>
+    <p>Se utiliza la herramienta Trimmomatic para filtrar los reads con bajo nivel de confianza</p>
     <form>
       <mat-form-field class="parameters-form">
-        <mat-label>Parámetro 1</mat-label>
-        <input matInput placeholder="Ingresar Valor">
-        <mat-hint>Recomendación 1</mat-hint>
+        <mat-label>Reads de Entrada 1</mat-label>
+        <input matInput placeholder="Ingresar Valor" [(ngModel)]="readsIn1" name="readsIn1">
+        <mat-hint>Formato FastQ</mat-hint>
       </mat-form-field>
 
       <mat-form-field class="parameters-form">
-        <mat-label>Parámetro 2</mat-label>
-        <input matInput placeholder="Ingresar Valor">
-        <mat-hint>Recomendación 2</mat-hint>
+        <mat-label>Reads de Entrada 2</mat-label>
+        <input matInput placeholder="Ingresar Valor" [(ngModel)]="readsIn2" name="readsIn2">
+        <mat-hint>Formato FastQ</mat-hint>
       </mat-form-field>
 
       <mat-form-field class="parameters-form">
-        <mat-label>Parámetro 3</mat-label>
-        <input matInput placeholder="Ingresar Valor">
-        <mat-hint>Recomendación 3</mat-hint>
+        <mat-label>Reads de Salida 1</mat-label>
+        <input matInput placeholder="Ingresar Valor" [(ngModel)]="readsOut1" name="readsOut1">
+        <mat-hint>Formato FastQ</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="parameters-form">
+        <mat-label>Reads de Salida 2</mat-label>
+        <input matInput placeholder="Ingresar Valor" [(ngModel)]="readsOut2" name="readsOut2">
+        <mat-hint>Formato FastQ</mat-hint>
       </mat-form-field>
 
       <button mat-raised-button type="button" color="primary" style="margin-left: 1%" (click)="lecturaInformacion()">Ejecutar JAR</button>
     </form>
     
     <div style="display: flex; margin-top: 1%">
-      <p>Texto Proveniente del Back-End:</p>  
+      <p>Respuesta del Back-End:</p>  
       <mat-spinner *ngIf="mostrarSpinner" color="primary" mode="indeterminate" [diameter]="30" style="margin-left: 1%"></mat-spinner>
       <p style="margin-left: 1%">{{resultadoLectura}}</p>
+    </div>
+
+    <div style="display: flex">
+      <p>Corriendo de forma local:</p>  
+      <mat-spinner *ngIf="mostrarSpinner" color="primary" mode="indeterminate" [diameter]="30" style="margin-left: 1%"></mat-spinner>
+      <p style="margin-left: 1%">{{runningLocal}}</p>
     </div>
   </mat-card-content>
 </mat-card>

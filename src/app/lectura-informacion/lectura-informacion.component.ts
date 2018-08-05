@@ -11,6 +11,11 @@ export class LecturaInformacionComponent implements OnInit {
 
   resultadoLectura: string;
   mostrarSpinner: boolean;
+  runningLocal: boolean;
+  readsIn1: string;
+  readsIn2: string;
+  readsOut1: string;
+  readsOut2: string;
 
   constructor(
     private backend: ConexionBackendService,
@@ -22,8 +27,10 @@ export class LecturaInformacionComponent implements OnInit {
 
   lecturaInformacion() {
     this.mostrarSpinner = true;
-    this.backend.lecturaInformacion().subscribe(data => {
-      this.resultadoLectura = data;
+    this.backend.lecturaInformacion(this.readsIn1, this.readsIn2, this.readsOut1, this.readsOut2).subscribe(data => {
+      const json = JSON.parse(data);
+      this.resultadoLectura = json.mensaje;
+      this.runningLocal = json.runningLocal;
       this.dialog.openDialog('La lectura de la información se almacenó en el archivo lectura.abc');
       this.mostrarSpinner = false;
     });

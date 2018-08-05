@@ -1,36 +1,42 @@
 <mat-card class="subgroup-card">
   <mat-card-header>
-    <mat-card-title class="card-title">Búsqueda de Coincidencias</mat-card-title>
+    <mat-card-title class="card-title">Búsqueda de Coincidencias - BowTie2</mat-card-title>
     <mat-card-subtitle>Subgrupo 2: Tomás García - Laura Fiadone - Nicolás Bennardo</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>Ingresar una descripción de la tarea realizada</p>
+    <p>Se utilizó la herramienta BowTie2 para poder generar índices de búsqueda en el archivo de referencia y poder encontrar las coincidencias</p>
     <form>
         <mat-form-field class="parameters-form">
-            <mat-label>Parámetro 1</mat-label>
-            <input matInput placeholder="Ingresar Valor">
-            <mat-hint>Recomendación 1</mat-hint>
+            <mat-label>Archivo de Referencia</mat-label>
+            <input matInput placeholder="Ingresar Valor" [(ngModel)]="archivoReferencia" name="archivoReferencia">
+            <mat-hint>Formato FastA</mat-hint>
           </mat-form-field>
     
           <mat-form-field class="parameters-form">
-            <mat-label>Parámetro 2</mat-label>
-            <input matInput placeholder="Ingresar Valor">
-            <mat-hint>Recomendación 2</mat-hint>
+            <mat-label>Genoma a Analizar</mat-label>
+            <input matInput placeholder="Ingresar Valor" [(ngModel)]="genomaAnalizar" name="genomaAnalizar">
+            <mat-hint>Formato FastQ</mat-hint>
           </mat-form-field>
     
           <mat-form-field class="parameters-form">
-            <mat-label>Parámetro 3</mat-label>
-            <input matInput placeholder="Ingresar Valor">
-            <mat-hint>Recomendación 3</mat-hint>
+            <mat-label>Archivo de Salida</mat-label>
+            <input matInput placeholder="Ingresar Valor" [(ngModel)]="archivoSalida" name="archivoSalida">
+            <mat-hint>Ingresar Nombre</mat-hint>
           </mat-form-field>
 
           <button mat-raised-button type="button" color="primary" style="margin-left: 1%" (click)="busquedaCoincidencias()">Ejecutar JAR</button>
     </form>
 
     <div style="display: flex; margin-top: 1%">
-      <p>Texto Proveniente del Back-End:</p>  
+      <p>Respuesta del Back-End:</p>  
       <mat-spinner *ngIf="mostrarSpinner" color="primary" mode="indeterminate" [diameter]="30" style="margin-left: 1%"></mat-spinner>
       <p style="margin-left: 1%">{{resultadoBusqueda}}</p>
+    </div>
+
+    <div style="display: flex">
+      <p>Corriendo de forma local:</p>  
+      <mat-spinner *ngIf="mostrarSpinner" color="primary" mode="indeterminate" [diameter]="30" style="margin-left: 1%"></mat-spinner>
+      <p style="margin-left: 1%">{{runningLocal}}</p>
     </div>
 
   </mat-card-content>

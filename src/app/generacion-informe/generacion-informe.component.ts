@@ -11,6 +11,10 @@ export class GeneracionInformeComponent implements OnInit {
 
   resultadoGeneracion: string;
   mostrarSpinner: boolean;
+  archivo1: string;
+  archivo2: string;
+  archivo3: string;
+  runningLocal: boolean;
 
   constructor(
     private dialog: ConexionDialogService,
@@ -22,8 +26,10 @@ export class GeneracionInformeComponent implements OnInit {
 
   generacionInformes() {
     this.mostrarSpinner = true;
-    this.backend.generacionInformes().subscribe(data => {
-      this.resultadoGeneracion = data;
+    this.backend.generacionInformes(this.archivo1, this.archivo2, this.archivo3).subscribe(data => {
+      const json = JSON.parse(data);
+      this.resultadoGeneracion = json.mensaje;
+      this.runningLocal = json.runningLocal;
       this.dialog.openDialog('Los informes generados se almacenaron en el archivo ensambles.abc');
       this.mostrarSpinner = false;
     });
