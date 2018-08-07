@@ -31,7 +31,7 @@ export class ConstruccionEnsamblesComponent implements OnInit {
         const json = JSON.parse(data);
         this.resultadoConstruccion = json.mensaje;
         this.runningLocal = json.runningLocal;
-        this.dialog.openDialog('Los ensambles construidos se almacenaron en el archivo ' + this.archivoSalida);
+        this.dialog.openDialog(json.mensaje);
         this.mostrarSpinner = false;
     });
   }

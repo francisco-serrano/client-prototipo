@@ -30,7 +30,7 @@ export class BusquedaCoincidenciasComponent implements OnInit {
       const json = JSON.parse(data);
       this.resultadoBusqueda = json.mensaje;
       this.runningLocal = json.runningLocal;
-      this.dialog.openDialog('Las coincidencias encontradas se almacenaron en el archivo coincidencias.abc');
+      this.dialog.openDialog(json.mensaje);
       this.mostrarSpinner = false;
     });
   }

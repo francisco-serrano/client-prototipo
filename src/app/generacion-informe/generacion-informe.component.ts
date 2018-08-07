@@ -30,7 +30,7 @@ export class GeneracionInformeComponent implements OnInit {
       const json = JSON.parse(data);
       this.resultadoGeneracion = json.mensaje;
       this.runningLocal = json.runningLocal;
-      this.dialog.openDialog('Los informes generados se almacenaron en el archivo ensambles.abc');
+      this.dialog.openDialog(json.mensaje);
       this.mostrarSpinner = false;
     });
   }

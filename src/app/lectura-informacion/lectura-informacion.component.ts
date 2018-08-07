@@ -31,7 +31,7 @@ export class LecturaInformacionComponent implements OnInit {
       const json = JSON.parse(data);
       this.resultadoLectura = json.mensaje;
       this.runningLocal = json.runningLocal;
-      this.dialog.openDialog('La lectura de la información se almacenó en el archivo lectura.abc');
+      this.dialog.openDialog(json.mensaje);
       this.mostrarSpinner = false;
     });
   }
